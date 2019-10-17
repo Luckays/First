@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "nodemon --exec babel-node src/index.js"
+    "start": "nodemon --exec babel-node src/index.js",
+    "prod": "pm2 start --interpreter babel-node src/index.js"
   },
   "author": "",
   "license": "ISC",
