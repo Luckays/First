@@ -8,6 +8,8 @@ app.listen(3000);
 
 let fileName;
 
+
+/*
 //main
 openfolder("data");//?otevreni slozky a cteni souboru
 while(true){
@@ -54,4 +56,4 @@ class Line{
         this.date;
         this.temperature;
             }
-    }
+    }*/
