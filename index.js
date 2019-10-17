@@ -6,28 +6,26 @@ app.get('/', function(req, res){
 });
 app.listen(3000);
 
-let fileName;
+
 
 //main
 
 var fs = require('fs');
-var files = fs.readdirSync('data');
+var filename = fs.readdirSync('data');
 app.get('/graph', function(req, res){
-    res.send(files);
+    res.send(filename);
 });
 
-/*
-var fs = require('fs');
 
-var readStream = fs.createReadStream(path.join(__dirname, '/data') + '/in.txt', 'utf8');
+var readStream = fs.createReadStream(path.join(__dirname, '/data/') + filename[1], 'utf8');
 let data = '';
 readStream.on('data', function(chunk) {
     data += chunk;
 }).on('end', function() {
-    app.get('/graph', function(req, res){
-        res.send(readStream);
+    app.get('/graph/data', function(req, res){
+        res.send(data);
     });
-});*/
+});
 /*
 var fs = require('fs');
 
