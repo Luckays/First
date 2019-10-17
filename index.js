@@ -9,22 +9,51 @@ app.listen(3000);
 let fileName;
 
 //main
+
+var fs = require('fs');
+var files = fs.readdirSync('data');
+app.get('/graph', function(req, res){
+    res.send(files);
+});
+
+/*
+var fs = require('fs');
+
+var readStream = fs.createReadStream(path.join(__dirname, '/data') + '/in.txt', 'utf8');
+let data = '';
+readStream.on('data', function(chunk) {
+    data += chunk;
+}).on('end', function() {
+    app.get('/graph', function(req, res){
+        res.send(readStream);
+    });
+});*/
+/*
+var fs = require('fs');
+
+try {
+    var data = fs.readFileSync('in.txt', 'utf8');
+    console.log(data.toString());
+} catch(e) {
+    console.log('Error:', e.stack);
+}*/
+/*
 openfolder("data");//?otevreni slozky a cteni souboru
 while(true){
     let fileName;
     switch (fileName.split('.').pop());{
-        case 'txt'
-            new TxtParser(fileName).parse();
-            break;
+    case 'txt'
+        new TxtParser(fileName).parse();
+        break;
     }
-    }
+}
 
 
 class TxtParser{
     constructor(fileName) {
         this.filename = fileName;
     }
-        array <Line> parse() {    //?array tak aby byl vysledek tridy line
+    array <Line> parse() {    //?array tak aby byl vysledek tridy line
         i = 0;
         let result = [];
         while (myFile.good()){ /// myFile
@@ -34,24 +63,24 @@ class TxtParser{
             if(i==1){
                 continue;}
             let split = line.split('').filter(item=>){return item !== ' '});
-            Line::date = Date(); // soubory sly do tridy line
-            date.setYear(split[0]);
-            date.setMonth(split[1]);
-            date.setDate(split[2]);
-            date.setHours(split[3],split[4],split[5])
-            Line::temperature = split[6]
-            result.push({date,temperature})
-            }
-        }
+    Line::date = Date(); // soubory sly do tridy line
+    date.setYear(split[0]);
+    date.setMonth(split[1]);
+    date.setDate(split[2]);
+    date.setHours(split[3],split[4],split[5])
+    Line::temperature = split[6]
+    result.push({date,temperature})
+}
+}
 
 app.get('/graph/temperature', function(req, res){
     res.send(result);
 });
-        }
+}
 
 class Line{
     constructor(){
         this.date;
         this.temperature;
-            }
     }
+}*/
