@@ -1,5 +1,6 @@
 import readline from 'readline'
 import fs from 'fs'
+import path from 'path'
 
 export const parseTxtFile = filename => {
     /**
@@ -7,7 +8,7 @@ export const parseTxtFile = filename => {
      * soubor postupne, treba po radku, jako to chceme my.
      */
     const readInterface = readline.createInterface({
-        input: fs.createReadStream(__dirname + '/../samples/' + filename),
+        input: fs.createReadStream(path.join(__dirname, '/../data/', filename)),
         output: process.stdout,
         console: false
     });
