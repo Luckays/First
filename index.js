@@ -3,7 +3,7 @@ const  app = express();
 const path = require('path')
 var fs = require('fs');
 const readline = require('readline');
-app.listen(3000);
+app.listen(55000);
 
 //Funkce TXtparse
 function Txtparse(filename) {
@@ -133,10 +133,15 @@ function Molparse(filename) {
         let hours = split [3];
         let minutes = split [4];
         let seconds = split [5];
+        let pressure = split [6]
+        let well_hight = split[8]
+        let moistness = split[9]
+        let rain = split[10]
+
         date.setFullYear(year,month,day);
         date.setHours(hours,minutes,seconds);
-        temperature = split[8];
-        parsedLines.push({year,month,day,hours,minutes,seconds,temperature})
+        temperature = split[7];
+        parsedLines.push({year,month,day,hours,minutes,seconds,temperature,pressure,well_hight,moistness,rain})
     });
     return parsedLines;
 }
@@ -144,13 +149,6 @@ function Molparse(filename) {
 
 
 
-class Line{
-    constructor(first,second,third){
-        this.first = first;
-        this.second = second;
-        this.third = third;
-    }
-}
 
 
 let filetxt = [];
